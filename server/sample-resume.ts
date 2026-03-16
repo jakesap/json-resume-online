@@ -1,8 +1,15 @@
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const avatarDataUrl = `data:image/png;base64,${readFileSync(join(__dirname, 'avatar.png')).toString('base64')}`
+
 export const SAMPLE_RESUME = {
   basics: {
     name: "John Doe",
     label: "Senior Software Engineer",
-    image: "",
+    image: avatarDataUrl,
     email: "john.doe@example.com",
     phone: "(912) 555-4321",
     url: "https://johndoe.com",

@@ -1,10 +1,8 @@
-import avatarUrl from '@/assets/avatar.png'
-
 export const SAMPLE_RESUME = {
   basics: {
     name: 'John Doe',
     label: 'Senior Software Engineer',
-    image: avatarUrl,
+    image: '',
     email: 'john.doe@example.com',
     phone: '(912) 555-4321',
     url: 'https://johndoe.com',
