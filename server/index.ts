@@ -145,7 +145,7 @@ app.post('/api/pdf', async (req, res) => {
 // Serve the Vite-built frontend in production
 const distPath = path.join(__dirname, '..', 'dist')
 app.use(express.static(distPath))
-app.get('*', (_req, res) => {
+app.use((_req, res) => {
   res.sendFile(path.join(distPath, 'index.html'))
 })
 
