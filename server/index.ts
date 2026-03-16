@@ -2,12 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import puppeteer from 'puppeteer'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import { renderResume } from './renderer.ts'
 import { SAMPLE_RESUME } from './sample-resume.ts'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3001
@@ -143,7 +139,7 @@ app.post('/api/pdf', async (req, res) => {
 })
 
 // Serve the Vite-built frontend in production
-const distPath = path.join(__dirname, '..', 'dist')
+const distPath = path.join(process.cwd(), 'dist')
 app.use(express.static(distPath))
 app.use((_req, res) => {
   res.sendFile(path.join(distPath, 'index.html'))
