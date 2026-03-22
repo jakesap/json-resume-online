@@ -1,6 +1,5 @@
 import cors from "cors";
 import express from "express";
-import { existsSync } from "fs";
 import path from "path";
 import puppeteer from "puppeteer";
 import { renderResume } from "./renderer.ts";
@@ -153,8 +152,6 @@ app.post("/api/pdf", async (req, res) => {
 // Serve the Vite-built frontend in production
 // Use import.meta.dir (bun) for reliable path resolution regardless of cwd
 const distPath = path.join(import.meta.dirname, "..", "dist");
-console.log("[static] distPath:", distPath);
-console.log("[static] index.html exists:", existsSync(path.join(distPath, "index.html")));
 app.use(express.static(distPath));
 app.use((_req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
