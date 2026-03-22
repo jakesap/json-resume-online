@@ -2,7 +2,7 @@ services:
   - type: web
     name: json-resume-online
     runtime: node
-    buildCommand: NODE_ENV=development bun install && bun x vite build
+    buildCommand: bun install && bun run build
     startCommand: bun start
     envVars:
       - key: NODE_ENV
