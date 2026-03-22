@@ -1,6 +1,6 @@
 # JSON Resume Online
 
-A web app for building, previewing, and exporting resumes using the [JSON Resume](https://jsonresume.org) standard. Paste your resume JSON, pick from 20 themes, preview it instantly, and download as HTML or PDF.
+A web app for building, previewing, and exporting resumes using the [JSON Resume](https://jsonresume.org) standard. Paste your resume JSON, pick from 20 themes, preview it instantly, and download as HTML or PDF. Preview at [Preview website](https://json-resume-online.onrender.com).
 
 ## Features
 
@@ -49,11 +49,11 @@ This repo includes a [`render.yaml`](render.yaml) for one-click deployment as a 
 
 ### Manual Render setup (without render.yaml)
 
-| Setting | Value |
-|---|---|
-| Runtime | Node |
+| Setting       | Value                          |
+| ------------- | ------------------------------ |
+| Runtime       | Node                           |
 | Build Command | `bun install && bun run build` |
-| Start Command | `bun start` |
+| Start Command | `bun start`                    |
 
 ## Scripts
 

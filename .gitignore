@@ -1,5 +1,6 @@
 node_modules
 dist
+.puppeteer-cache
 .claude
 .env
 .env.local
