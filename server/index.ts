@@ -150,8 +150,8 @@ app.post("/api/pdf", async (req, res) => {
 });
 
 // Serve the Vite-built frontend in production
-// Use import.meta.dir (bun) for reliable path resolution regardless of cwd
-const distPath = path.join(import.meta.dirname, "..", "dist");
+// path.resolve("dist") anchors to process.cwd(), which Render sets to the project root
+const distPath = path.resolve("dist");
 app.use(express.static(distPath));
 app.use((_req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
