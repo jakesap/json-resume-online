@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import fs from "fs";
 import path from "path";
 import puppeteer from "puppeteer";
 import { renderResume } from "./renderer.ts";
@@ -150,11 +151,14 @@ app.post("/api/pdf", async (req, res) => {
 });
 
 // Serve the Vite-built frontend in production
-// path.resolve("dist") anchors to process.cwd(), which Render sets to the project root
 const distPath = path.resolve("dist");
+const indexPath = path.join(distPath, "index.html");
+console.log("[static] distPath:", distPath);
+console.log("[static] index.html exists:", fs.existsSync(indexPath));
+console.log("[static] dist contents:", fs.existsSync(distPath) ? fs.readdirSync(distPath) : "dist/ not found");
 app.use(express.static(distPath));
 app.use((_req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
+  res.sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
